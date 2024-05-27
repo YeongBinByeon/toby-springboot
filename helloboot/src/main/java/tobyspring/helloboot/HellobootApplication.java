@@ -24,24 +24,7 @@ public class HellobootApplication {
 	}
 
 	public static void main(String[] args) {
-		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext(){
-			@Override
-			protected void onRefresh() {
-				super.onRefresh();
-
-				ServletWebServerFactory serverFactory = this.getBean(ServletWebServerFactory.class);
-				DispatcherServlet dispatcherServlet = this.getBean(DispatcherServlet.class);
-				dispatcherServlet.setApplicationContext(this);
-
-				WebServer webServer = serverFactory.getWebServer(servletContext -> {
-					servletContext.addServlet("dispatcherServlet", dispatcherServlet
-
-					).addMapping("/*");
-				});
-				webServer.start(); // tomcat 서블릿 컨테이너가 동작한다.
-			}
-		};
-		applicationContext.register(HellobootApplication.class);
-		applicationContext.refresh();
+		MySpringApplication.run(HellobootApplication.class, args);
 	}
+
 }
