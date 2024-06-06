@@ -1,5 +1,6 @@
 package tobyspring.helloboot;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +11,6 @@ import tobyspring.config.MySpringBootApplication;
 
 @MySpringBootApplication
 public class HellobootApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(HellobootApplication.class, args);
 	}
